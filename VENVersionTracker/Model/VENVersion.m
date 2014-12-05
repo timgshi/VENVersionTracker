@@ -72,7 +72,8 @@
         return nil;
     }
     
-    NSString *versionUrl        = [NSString stringWithFormat:@"%@/track/%@", baseUrl, channel];
+    NSString *bundleIdentifier  = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *versionUrl        = [NSString stringWithFormat:@"%@/track/%@?bundleIdentifier=%@", baseUrl, channel, bundleIdentifier];
     NSURL *url                  = [NSURL URLWithString:versionUrl];
     NSURLRequest *urlRequest    = [NSURLRequest requestWithURL:url
                                                    cachePolicy:NSURLRequestReloadIgnoringCacheData
